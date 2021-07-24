@@ -1,0 +1,12 @@
+{% extends 'memo/base.html' %}
+{% block content %}
+<main class="card container mt-4 w-50">
+    <form class="card-body post-form" method="POST">{% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">買う物</label>
+        <input name="text" type="text" class="form-control" id="id_text">
+    </div>
+    <button type="submit" class="btn btn-primary">追加</button>
+    </form>
+</main>
+{% endblock %}

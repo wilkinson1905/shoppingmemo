@@ -1,0 +1,45 @@
+{% extends 'memo/base.html' %}
+{% block content %}
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-5 m-3 shadow rounded">
+                <h2 class="text-center">未購入</h2>
+                {% for item in incompletes%}
+                    <div class="card m-2 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 fw-normal">{{item.text}}</h4>
+                            <p class="my-0 fw-lighter">{{item.created_date}}</p>
+                        </div>
+                        <div class="card-body row">
+                            <a class="m-1 btn btn-sm btn-primary col" href="{% url 'complete' item.id %}">完了</a>
+                            <a class="m-1 btn btn-sm btn-secondary col" href="{% url 'up' item.id %}">⇧上へ</a>
+                            <a class="m-1 btn btn-sm btn-secondary col" href="{% url 'down' item.id %}">⇩下へ</a>
+                            <a class="m-1 btn btn-sm btn-danger col" href="{% url 'delete' item.id %}">削除</a>
+                        </div>
+                    </div>
+                {% endfor%}
+                <div class="text-left">
+                    <a class="m-2 btn btn-md btn-success" href="{% url 'add_item'%}">追加</a>
+                </div>
+            </div>
+
+            <div class="col-5 m-3 shadow rounded">
+                <h2 class="text-center">購入済</h2>
+                {% for item in completes%}
+                    <div class="card m-2 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 fw-normal">{{item.text}}</h4>
+                            <p class="my-0 fw-lighter">{{item.created_date}}</p>
+                        </div>
+                        <div class="card-body row">
+                            <a class="m-1 btn btn-sm btn-primary col" href="{% url 'incomplete' item.id %}">元に戻す</a>
+                            <a class="m-1 btn btn-sm btn-secondary col" href="{% url 'up' item.id %}">⇧上へ</a>
+                            <a class="m-1 btn btn-sm btn-secondary col" href="{% url 'down' item.id %}">⇩下へ</a>
+                            <a class="m-1 btn btn-sm btn-danger col" href="{% url 'delete' item.id %}">削除</a>
+                        </div>
+                    </div>
+                {% endfor%}
+            </div>
+        </div>
+    </main>
+{% endblock %}
