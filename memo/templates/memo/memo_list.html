@@ -2,7 +2,7 @@
 {% block content %}
     <main class="container">
         <div class="row justify-content-center">
-            <div class="col-5 m-3 shadow rounded">
+            <div class="col-12 col-lg m-3 shadow rounded">
                 <h2 class="text-center">未購入</h2>
                 {% for item in incompletes%}
                     <div class="card m-2 shadow-sm">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="col-5 m-3 shadow rounded">
+            <div class="col-12 col-lg m-3 shadow rounded">
                 <h2 class="text-center">購入済</h2>
                 {% for item in completes%}
                     <div class="card m-2 shadow-sm">

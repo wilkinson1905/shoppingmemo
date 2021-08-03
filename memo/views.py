@@ -26,7 +26,6 @@ def add_item(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.username = request.user
             post.status = "未完了"
             post.created_data = timezone.now()
             order_max = Post.objects.filter(

@@ -4,8 +4,8 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-    username = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # username = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     status = models.TextField()
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)

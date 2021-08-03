@@ -132,9 +132,12 @@ if DEPLOY:
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_SSL_REDIRECT = True
-    SECRET_KEY = os.environ['SECRET_KEY']
+    with open("../SECRET_KEY.txt") as f:
+        SECRET_KEY = f.read()
     DEBUG = False
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com']
     SECURE_HSTS_PRELOAD = True
+MEDIA_URL = '/media/'
+MEDIA_ROOT = Path(BASE_DIR / 'media')
